@@ -1,0 +1,239 @@
+:root{
+    --primary-color: #1a1a2e;
+    --secondary-color: #16213e;
+    --accent-color: #e94560;
+    --background-color: #f6f6f6;
+    --font-color: #fff;
+    --secondary-font-color: #555;
+    --border-radius:20px;
+    --box-shadow:0 4px 6px rgba(0,0,0,0.1);
+    --transition:all 0.3s ease;
+}
+
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 1.6;
+    color: var(--secondary-font-color);
+    display: grid;
+    grid-template-rows: 70px 5fr 1fr;
+    grid-template-columns: 100%;
+    min-height: 100vh;
+}
+
+header{
+    background-color: var(--primary-color);
+    color: var(--font-color);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    padding: 0 20px;
+    width : 100%;
+  
+  
+}
+
+header h1{
+    font-weight: 600;
+    font-size: 25px;
+    color: var(--accent-color);
+    min-width: 190px;
+}
+
+header nav ul{
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li{
+    margin: 0 15px;
+}
+
+header li a {
+    color: var(--font-color);
+    text-decoration: none;
+    font-weight: 400;
+    padding: 10px 15px;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+header nav a:hover
+{
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+/* hero */
+
+.hero {
+    height: calc(100vh - 70px);
+    background: linear-gradient(rgba(26,26,26,0.7), rgba(26,26,26,0.7)) , url('WebsiteBG.png') no-repeat center center/cover;
+    color: var(--font-color);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    flex-direction: column;
+}
+
+.hero h2{
+    font-size: 35px;
+    margin-bottom: 20px;
+    font-weight: 600px;
+}
+
+.hero p{
+    font-size: 20px;
+    max-width: 600px;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.btn{
+    background-color: var(--accent-color);
+    color: #fff;
+    border-radius: var(--border-radius);
+    padding :12px 25px;
+    text-decoration: none;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+
+.btn:hover{
+    background-color: var(--secondary-color);
+}
+
+footer{
+    background-color: var(--primary-color);
+    color: var(--font-color);
+    text-align: center;
+    padding: 20px 0;
+    padding-top:10px;
+    box-shadow: var(--box-shadow);
+}
+
+footer p{
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+footer nav ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+footer nav li{
+    margin : 0 15px;
+}
+
+footer nav a {
+    color: var(--font-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+footer nav a:hover{
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.about{
+    padding: 120px 0 60px 0;
+    text-align: center;
+}
+
+.about h2{
+    margin-bottom: 30px;
+    font-size: 25px;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.about p{
+    max-width: 700px;
+    font-size: 20px;
+    line-height: 1.8;
+    margin :0 auto;
+}
+
+.portfolio{
+    padding: 60px 0;
+    text-align: center;
+    background-color: var(--background-color);
+}
+
+.portfolio h2{
+    margin-bottom: 20px;
+    font-size: 30px;
+    color: var(--primary-color);
+
+}
+
+.portfolio-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,500px) );
+    justify-content: center;
+    gap :30px;
+}
+
+.portfolio-items{
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+
+.portfolio-items img{ 
+max-width: 100%;
+height: auto;
+border-radius: var(--border-radius);
+margin-bottom: 15px;
+}
+
+.portfolio-items:hover{
+    transform: translateY(-5px);
+}
+
+.resume{
+    padding: 100px 0;
+    text-align: center;
+    background-color: var(--background-color);
+}
+
+.resume h2{
+    margin-bottom: 30px;
+    font-size: 25px;
+    color: var(--primary-color);
+}
+
+.resume-grid
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px,400px));
+    justify-content: center;
+    margin-top: 40px;
+    gap: 30px;
+}
+
+.resume-section
+{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.resume-section ul{
+    list-style-type: none;
+}
+
+.resume-section h3
+{
+    color: var(--accent-color);
+}
