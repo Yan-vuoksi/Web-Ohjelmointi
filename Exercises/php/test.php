@@ -14,5 +14,11 @@ echo "<li>" . $i;
 }
 echo "</ul>";
 ?>
+<?php
+$greeting = "Tervetuloa PHP:n maailmaan!";
+for ($i=1; $i <= 5; $i++) {
+    echo "<p>".$greeting."</p>";
+}
+?>
 </body>
 </html>
