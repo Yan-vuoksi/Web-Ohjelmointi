@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lemmikkilomake</title>
+</head>
+<body>
+    <form action="submit.php" method="post">
+        <h1>HTML Lomakeharjoitus</h1>
+        <label for="petName">Lemmikin Nimi:</label><br>
+        <input type="text" id="petName" name="name" placeholder="Nimi" required><br>
+        <label for="date">Syntymäaika:</label><br>
+        <input type="date" id="date" name="date"><br><br>
+        <label for="type">Lemmikin eläinlaji:</label><br><br>
+        <input type="radio" id="cat" name="type" value="Kissa" checked>
+        <label for="cat">Kissa</label><br>
+        <input type="radio" id="dog" name="type" value="Koira">
+        <label for="dog">Koira</label><br>
+        <input type="radio" id="Hamster" name="type" value="Hamsteri">
+        <label for="Hamster">Hamsteri</label><br>
+        <input type="radio" id="Hamster2" name="type" value="Hamsteri">
+        <label for="Hamster2">Hamsteri</label><br>
+        <input type="radio" id="Käärme" name="type" value="Käärme">
+        <label for="Käärme">Käärme</label><br><br>
+
+        <label for="favThings">Lemmikin lempiasiat:</label><br><br>
+        <input type="checkbox" id="sleeping" name="sleeping" value="sleeping" multiple>
+        <label for="sleeping">Nukkuminen</label><br>
+        <input type="checkbox" id="food" name="food" value="food">        
+        <label for="food">Ruoka</label><br>
+        <input type="checkbox" id="playing" name="playing" value="playing">
+        <label for="playing">Leikkiminen</label><br>
+        <input type="checkbox" id="running" name="running" value="running">
+        <label for="running">Juokseminen</label><br>
+    </form>
+</body>
+</html>
