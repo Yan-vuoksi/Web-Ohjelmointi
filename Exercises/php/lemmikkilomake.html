@@ -32,7 +32,20 @@
         <input type="checkbox" id="playing" name="playing" value="playing">
         <label for="playing">Leikkiminen</label><br>
         <input type="checkbox" id="running" name="running" value="running">
-        <label for="running">Juokseminen</label><br>
+        <label for="running">Juokseminen</label><br><br>
+        <label for="color">Lemmikin väri:</label><br><br>
+        <label for="chosenColor">Valitse väri:</label>
+        <input type="color" id="chosenColor1" name="color" value="#ff0000"><br><br>
+        <label for="equipments">Lemmikin varusteet:</label><br><br>
+        <label for="petEquipments">Varusteet: </label>
+        <select id="petEquipments" name="equipments" multiple size="4">
+            <option value="panta">Panta</option>
+            <option value="hihna">Hihna</option>
+            <option value="kuljetuslaatikko">Kuljetuslaatikko</option>
+            <option value="lelut">Lelut</option>
+        </select><br><br>
+        <input type="submit" value="Lähetä">
+        <input type="reset" value="Resetoi">
     </form>
 </body>
 </html>
