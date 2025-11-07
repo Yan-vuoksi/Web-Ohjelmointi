@@ -11,7 +11,7 @@ function calculateShippingCost($toimitustapa) {
             return -1; // Invalid shipping method
     }
 }
-$valittu_tapa="postipaketti"; // Example input, replace with actual input retrieval method
+$valittu_tapa="nouto"; // Example input, replace with actual input retrieval method
 $hinta = calculateShippingCost($valittu_tapa);
 if ($hinta != -1) {
     echo "Valittu toimitustapa: $valittu_tapa<br>";
