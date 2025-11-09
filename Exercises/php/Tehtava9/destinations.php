@@ -17,7 +17,7 @@
 <?php include 'navigation.php'; ?>
 
 <main>
-    <h2>Top Eco Destinations</h2>
+    <h2 align="center">Top Eco Destinations</h2>
 
     <div class="destinations-container">
         <?php
