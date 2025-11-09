@@ -6,7 +6,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Circle logo at top left -->
 <header>
+     <div class="circle-logo">
+        <img src="images/logo.png" alt="EcoTravel Logo">
+    </div>
     <h1>Contact Us</h1>
     <p>We’d love to hear from you!</p>
 </header>

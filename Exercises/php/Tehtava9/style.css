@@ -351,6 +351,34 @@ form button:hover {
     font-size: 1.1em;
 }
 
+header {
+    position: relative;
+    padding-left: 0px; /* space for logo */
+}
+
+.circle-logo {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(31,77,61,0.10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.circle-logo img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
 /* ...existing code... */
 
 /* Responsive design */

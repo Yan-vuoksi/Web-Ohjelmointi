@@ -7,6 +7,9 @@
 </head>
 <body>
 <header>
+    <div class="circle-logo">
+        <img src="images/logo.png" alt="EcoTravel Logo">
+    </div>
     <h1>Our Destinations</h1>
     <p>Discover Finland's most breathtaking eco-locations</p>
 </header>
