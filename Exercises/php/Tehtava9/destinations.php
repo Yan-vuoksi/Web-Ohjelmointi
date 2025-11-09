@@ -50,7 +50,9 @@
             echo "
             <div class='destination-card'>
                 <div class='image-container'>
-                    <img src='images/$image' alt='$name'>
+                 <a href='checkout.php?destination=" . urlencode($name) . "' style='text-decoration:none'>
+                    <img src='images/$image' alt='$name' />
+
                     <div class='overlay'>
                         <h3>$name</h3>
                     </div>

@@ -3,6 +3,7 @@
 $pages = [
     "Home" => "home.php",
     "Destinations" => "destinations.php",
+    "Checkout" => "checkout.php",
     "Contact" => "contact.php"
 ];
 

@@ -41,7 +41,7 @@
     }
     ?>
 
-    <h2>Send us a message</h2>
+    <h2 align="center">Send us a message</h2>
 
     <form method="post" action="">
         <label for="name">Name:</label>
