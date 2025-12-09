@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palkkalaskuri</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .calculator-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2em;
+            font-weight: 300;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+            font-size: 1.1em;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e1e1e1;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background-color: #fafafa;
+        }
+
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #667eea;
+            background-color: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .currency-symbol, .percentage-symbol, .hours-symbol {
+            position: relative;
+        }
+
+        .currency-symbol::after {
+            content: "€";
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #667eea;
+            font-weight: bold;
+            pointer-events: none;
+        }
+
+        .percentage-symbol::after {
+            content: "%";
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #667eea;
+            font-weight: bold;
+            pointer-events: none;
+        }
+
+        .hours-symbol::after {
+            content: "h";
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #667eea;
+            font-weight: bold;
+            pointer-events: none;
+        }
+
+        .currency-symbol input,
+        .percentage-symbol input,
+        .hours-symbol input {
+            padding-right: 35px;
+        }
+
+        .calculate-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .calculate-btn:active {
+            transform: translateY(0);
+        }
+
+        .result-section {
+            margin-top: 30px;
+            padding: 25px;
+            background: #f8f9ff;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            display: none;
+        }
+
+        .result-section.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .result-item:last-child {
+            margin-bottom: 0;
+            font-size: 18px;
+            font-weight: bold;
+            color: #667eea;
+            border-top: 2px solid #e1e1e1;
+            padding-top: 12px;
+        }
+
+        .result-label {
+            color: #666;
+        }
+
+        .result-value {
+            font-weight: 600;
+            color: #333;
+        }
+
+        @media (max-width: 600px) {
+            .calculator-container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 1.7em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <h1>💰 Palkkalaskuri</h1>
+        
+        <form id="salaryForm">
+            <div class="form-group">
+                <label for="hourlyWage">Tuntipalkka:</label>
+                <div class="currency-symbol">
+                    <input type="number" id="hourlyWage" name="hourlyWage" step="0.01" min="0" placeholder="Syötä tuntipalkka" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="hoursWorked">Työtunnit:</label>
+                <div class="hours-symbol">
+                    <input type="number" id="hoursWorked" name="hoursWorked" step="0.5" min="0" placeholder="Syötä työtunnit" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="taxRate">Veroprosentti:</label>
+                <div class="percentage-symbol">
+                    <input type="number" id="taxRate" name="taxRate" step="0.1" min="0" max="100" placeholder="Syötä veroprosentti" required>
+                </div>
+            </div>
+
+            <button type="submit" class="calculate-btn">
+                🧮 Laske palkka
+            </button>
+        </form>
+
+        <div id="results" class="result-section">
+            <div class="result-item">
+                <span class="result-label">Bruttopalkka:</span>
+                <span class="result-value" id="grossSalary">0.00 €</span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">Verot:</span>
+                <span class="result-value" id="taxes">0.00 €</span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">Nettopalkka:</span>
+                <span class="result-value" id="netSalary">0.00 €</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('salaryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const hourlyWage = parseFloat(document.getElementById('hourlyWage').value);
+            const hoursWorked = parseFloat(document.getElementById('hoursWorked').value);
+            const taxRate = parseFloat(document.getElementById('taxRate').value);
+            
+            // Validate inputs
+            if (isNaN(hourlyWage) || isNaN(hoursWorked) || isNaN(taxRate)) {
+                alert('Syötä kaikki kentät oikein!');
+                return;
+            }
+            
+            // Calculate salary
+            const grossSalary = hourlyWage * hoursWorked;
+            const taxes = grossSalary * (taxRate / 100);
+            const netSalary = grossSalary - taxes;
+            
+            // Display results
+            document.getElementById('grossSalary').textContent = grossSalary.toFixed(2) + ' €';
+            document.getElementById('taxes').textContent = taxes.toFixed(2) + ' €';
+            document.getElementById('netSalary').textContent = netSalary.toFixed(2) + ' €';
+            
+            // Show results section
+            document.getElementById('results').classList.add('show');
+        });
+    </script>
+</body>
+</html>
