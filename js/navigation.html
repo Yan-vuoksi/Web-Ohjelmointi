@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<title>Dynamic menu</title>
+<style>
+body { font-family: sans-serif; padding: 20px; }
+
+/* Navigation styles ready */
+#nav-list {
+list-style-type: none;
+padding: 0;
+margin: 0;
+background-color: #333;
+overflow: hidden;
+}
+
+#nav-list li {
+float: left;
+}
+
+#nav-list li a {
+display: block;
+color: white;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+}
+
+#nav-list li a:hover {
+background-color: #111;
+}
+
+/* This is the class you need to use in JavaScript */
+.active {
+background-color: #04AA6D !important;
+}
+</style>
+</head>
+<body>
+
+<h1>Website</h1>
+
+<nav>
+<ul id="nav-list">
+
+</ul>
+</nav>
+
+<div style="margin-top: 20px; padding: 10px; border: 1px solid #ccc;" >
+<h3>Page Contents</h3>
+<p>This is an example of dynamic navigation.</p>
+<p>Note: For the "active" class to work when testing, make sure that
+the url of the pages table matches the name of this file (e.g. navigaatio.html).</p>
+</div>
+
+<script>
+// 1. DATA: Define navigation links
+const pages = [
+{ name: "Home", url: "navigation.html" },
+{ name: "Products", url: "tuotteet.html" },
+{ name: "Contact", url: "contact.html" }
+];
+
+// 2. HELPER VARIABLE: Retrieve the filename of the current page from the address bar 
+// // (Corresponds to PHP's basename($_SERVER['PHP_SELF']) command)
+const currentPage = window.location.pathname.split("/").pop();
+
+// 3. SEARCH ELEMENT: Where to print the navigation?
+const navUl = document.getElementById("nav-list");
+
+// LOOP 4: Go throughthe pages table
+ pages.forEach(function(page) {
+
+//--- WRITE YOUR CODE HERE BELOW
+// A) Create an HTML string or elements (<li><a href="...">... </a></li>)
+// Use page.name and page.url.
+
+// Create list item element
+const li = document.createElement("li");
+const a = document.createElement("a");
+
+// Set href and text content
+a.href = page.url;
+a.textContent = page.name;
+
+// B) LOGIC: Check if this page is active.
+// CONDITION: If (page.url === currentPage), then...
+// ... add class class="active"
+
+// Debug: Log current page and page URL for comparison
+console.log(`Current page: "${currentPage}", Page URL: "${page.url}"`);
+
+if (page.url === currentPage) {
+    a.classList.add("active");
+    console.log(`Active class added to: ${page.name}`);
+} else {
+    console.log(` No active class for: ${page.name}`);
+}
+
+// Append anchor to list item
+li.appendChild(a);
+
+// C) Add the finished piece inside the navUl element (innerHTML += ... or appendChild)
+navUl.appendChild(li);
+
+});
+
+</script>
+
+</body>
+</html>

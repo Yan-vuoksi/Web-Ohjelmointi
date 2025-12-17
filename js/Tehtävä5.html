@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tehtävä 5</title>
+</head>
+<body>
+    <h1>Car informations</h1>
+    <p id="car-infoStart">Here are some informations about the car.</p>
+    <p id="car-info">Here are some informations about the car.</p>
+    <script>
+        // Car object definition
+        const car = {
+            company: "Toyota",
+            model: "Corolla",
+            year: 2020,
+            color: "Blue",
+            inProgres: false,
+            isStarting: function() {
+                this.inProgres = true;
+                document.write("AutoStarting...");
+
+            },
+
+        };
+
+         function displayCarInfoBeforeStart() {
+            const carInfoElement = document.getElementById("car-infoStart");
+            const carInfo = "Company: " + car.company + "<br>" +
+                             "Model: " + car.model + "<br>" +
+                             "Year: " + car.year + "<br>" +
+                             "Color: " + car.color + "<br>" +
+                             "In Progress: " + car.inProgres;
+            
+            carInfoElement.innerHTML = carInfo;
+        }
+
+
+        // Function to display car information
+        function displayCarInfo() {
+            const carInfoElement = document.getElementById("car-info");
+            car.isStarting();
+            const carInfo = "Company: " + car.company + "<br>" +
+                             "Model: " + car.model + "<br>" +
+                             "Year: " + car.year + "<br>" +
+                             "Color: " + car.color + "<br>" +
+                             "In Progress: " + car.inProgres;
+            
+            carInfoElement.innerHTML = carInfo;
+        }
+
+        // Call the function to display the information
+        displayCarInfoBeforeStart();
+        displayCarInfo();
+    </script>
+</body>
+</html>
